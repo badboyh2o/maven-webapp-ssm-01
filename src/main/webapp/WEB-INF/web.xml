@@ -7,11 +7,17 @@
     <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
   
-   <!-- Spring配置文件 -->
+  
+   <!-- Spring监听器 -->
+   <listener>
+       <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+   </listener>
+   <!-- Spring配置文件信息放入servletContext -->
    <context-param>
        <param-name>contextConfigLocation</param-name>
        <param-value>classpath:spring-core.xml</param-value>
    </context-param>
+   
    
    <!-- 编码过滤器 -->
    <filter>
@@ -27,16 +33,13 @@
        <filter-name>encodingFilter</filter-name>
        <url-pattern>/*</url-pattern>
    </filter-mapping>
-   
-   <!-- Spring监听器 -->
-   <listener>
-       <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-   </listener>
+
    
    <!-- 添加对springmvc的支持 -->
    <servlet>
        <servlet-name>springMVC</servlet-name>
        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+       <!-- DispatcherServlet 的配置信息 -->
        <init-param>
            <param-name>contextConfigLocation</param-name>
            <param-value>classpath:spring-mvc.xml</param-value>
