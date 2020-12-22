@@ -15,7 +15,7 @@
    <!-- Spring配置文件信息放入servletContext -->
    <context-param>
        <param-name>contextConfigLocation</param-name>
-       <param-value>classpath:spring-core.xml</param-value>
+       <param-value>classpath:spring-context.xml</param-value>
    </context-param>
    
    
