@@ -2,10 +2,14 @@ package com.nantian.common.service;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
+import org.apache.http.HttpStatus;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.config.RequestConfig;
@@ -19,12 +23,16 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.nantian.controller.P10DataController;
+
 @Service
 public class HttpClientService {
-
+	private static Logger log = LoggerFactory.getLogger(HttpClientService.class);
 	@Autowired
 	private CloseableHttpClient httpClient;
 	@Autowired
@@ -171,12 +179,44 @@ public class HttpClientService {
 	 * @param body		请求体
 	 * @param charset	通信编码格式
 	 * @return
+	 * @throws ClientProtocolException 
 	 * @throws IOException
 	 */
-	public String doPost(String url, Map<String, String> headers, String body, String charset) {
-	
-	
-		return null;
+	public String doPost(String url, Map<String, String> headers, String body, String charset) throws ClientProtocolException, IOException {
+        HttpPost httpPost = new HttpPost(url);
+        // 响应
+        CloseableHttpResponse response = null;
+        String respStr = "";
+        
+        // 设置请求头
+        if(headers != null && headers.size() > 0) {
+            Set<Entry<String, String>> headerEntrys = headers.entrySet();
+            for(Map.Entry<String, String> entry : headerEntrys) {
+            	httpPost.addHeader(entry.getKey(), entry.getValue());
+            }
+        }
+        // 请求体
+        httpPost.setEntity(new StringEntity(body, Charset.forName(charset)));
+        
+        try {
+            response = httpClient.execute(httpPost);
+            if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+                log.info("服务端响应成功： " + HttpStatus.SC_OK);
+                respStr = EntityUtils.toString(response.getEntity(), Charset.forName(charset));
+                log.info("服务端响应内容: " + respStr);
+            } else {
+                log.error("服务端响应: " + response.getStatusLine().getStatusCode());
+            }
+        } finally {
+            try {
+                if (response != null) {
+                    response.close();
+                }
+            } catch (IOException e) {
+                log.error("关闭 CloseableHttpResponse 异常");
+            }
+        }
+        return respStr;
 	}
 
 }

@@ -38,10 +38,11 @@ public class P10DataController {
 	 * @param request
 	 * @param response
 	 * @return
+	 * @throws Exception 
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/data",  method = RequestMethod.POST)
-	public ResultVO<P10ResultDataVO> getData(@RequestBody P10ReqVO req, HttpServletRequest request, HttpServletResponse response) {
+	public ResultVO<P10ResultDataVO> getData(@RequestBody P10ReqVO req, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		log.debug("收到请求");
 		return p10DataService.getData(req);

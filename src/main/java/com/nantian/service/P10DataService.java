@@ -18,5 +18,5 @@ public interface P10DataService {
 	 * @param reqXml	请求xml报文
 	 * @return
 	 */
-	ResultVO<P10ResultDataVO> getData(P10ReqVO req);
+	ResultVO<P10ResultDataVO> getData(P10ReqVO req) throws Exception;
 }

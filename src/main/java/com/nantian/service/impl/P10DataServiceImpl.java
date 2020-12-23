@@ -1,8 +1,10 @@
 package com.nantian.service.impl;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.http.client.ClientProtocolException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,12 +30,15 @@ public class P10DataServiceImpl implements P10DataService {
 	
 	/**
 	 * 调 总行P10 http接口，获取到数据后，封装为 ResultVO<P10ResultDataVO> 返回
+	 * @throws IOException 
+	 * @throws ClientProtocolException 
 	 */
 	@Override
-	public ResultVO<P10ResultDataVO> getData(P10ReqVO req) {
+	public ResultVO<P10ResultDataVO> getData(P10ReqVO req) throws ClientProtocolException, IOException {
 		String reqXml = createP10ReqXml(req);
 		Map<String, String> header = new HashMap<String, String>();
 		header.put("Content-Type", "application/x-www-form-urlencoded; charset=" + AppConfig.A0831D023_ENCODING);
+		// TODO 异常
 		String respXml = httpClientService.doPost(AppConfig.A0831D023_URL, header, reqXml, AppConfig.A0831D023_ENCODING);
 		TxRespVO txRespVO = XstreamUtil.xmlToBean(respXml, TxRespVO.class);
 		ResultVO<P10ResultDataVO> p10DataResult = createP10DataResult(txRespVO);

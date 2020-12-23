@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TX>
+	<TX_HEADER>
+		<SYS_HDR_LEN/>
+		<SYS_PKG_VRSN>01</SYS_PKG_VRSN>
+		<SYS_TTL_LEN/>
+		<SYS_REQ_SEC_ID>110013</SYS_REQ_SEC_ID>
+		<SYS_SND_SEC_ID>110013</SYS_SND_SEC_ID>
+		<SYS_TX_TYPE>720000</SYS_TX_TYPE>
+		<SYS_EVT_TRACE_ID>644012J160862631877800045</SYS_EVT_TRACE_ID>
+		<SYS_SND_SERIAL_NO>0000000000</SYS_SND_SERIAL_NO>
+		<SYS_PKG_TYPE>1</SYS_PKG_TYPE>
+		<SYS_MSG_LEN/>
+		<SYS_IS_ENCRYPTED>0</SYS_IS_ENCRYPTED>
+		<SYS_ENCRYPT_TYPE>3</SYS_ENCRYPT_TYPE>
+		<SYS_COMPRESS_TYPE>0</SYS_COMPRESS_TYPE>
+		<SYS_EMB_MSG_LEN/>
+		<SYS_RECV_TIME>20201222152543730</SYS_RECV_TIME>
+		<SYS_RESP_TIME>20201222152543741</SYS_RESP_TIME>
+		<SYS_PKG_STS_TYPE>01</SYS_PKG_STS_TYPE>
+		<SYS_TX_STATUS>00</SYS_TX_STATUS>
+		<SYS_RESP_CODE>000000000000</SYS_RESP_CODE>
+		<SYS_RESP_DESC_LEN/>
+		<SYS_RESP_DESC>ok</SYS_RESP_DESC>
+	</TX_HEADER>
+	<TX_BODY>
+		<COMMON>
+			<COMB>
+				<TOTAL_PAGE>48</TOTAL_PAGE>
+				<TOTAL_REC>96</TOTAL_REC>
+				<CURR_TOTAL_PAGE>2</CURR_TOTAL_PAGE>
+				<CURR_TOTAL_REC>2</CURR_TOTAL_REC>
+				<STS_TRACE_ID/>
+			</COMB>
+			<FILE_LIST_PACK>
+				<FILE_NUM/>
+				<FILE_MODE/>
+				<FILE_NODE/>
+				<FILE_NAME_PACK/>
+				<FILE_PATH_PACK/>
+			</FILE_LIST_PACK>
+		</COMMON>
+		<ENTITY>
+			<Ret_Col_Set_Inf><![CDATA[Manager_No,Branch_No]]></Ret_Col_Set_Inf>
+			<Clmn_Opt_Dsc><![CDATA[数据日期, 机构编号, 客户经理编号, 客户编号, 客户姓名, 产品ID, 合约账号ID, 产品名称, 产品中类, 客户购买账号（脱敏取后四位）, 产品购买日期（办理日期）, 购买金额（额度）, 持有份额, 产品到期日期, 产品到期金额, 基金赎回日期, 基金赎回金额, 产品收益率, 产品大类, AUM总值, 预留字段_1, 预留字段_2, 预留字段_3, 预留字段_4, 预留字段_5, 预留字段_6, 预留字段_7, 预留字段_8, 预留字段_9, 预留字段_10, 预留字段_11, 预留字段_12, 预留字段_13, 预留字段_14, 预留字段_15]]></Clmn_Opt_Dsc>
+			<ENQR_RST_GRP type="G">
+				<Enqr_RstInf><![CDATA[92825981|@|440470513]]></Enqr_RstInf>
+			</ENQR_RST_GRP>
+			<ENQR_RST_GRP type="G">
+				<Enqr_RstInf><![CDATA[92825981|@|440470513]]></Enqr_RstInf>
+			</ENQR_RST_GRP>
+		</ENTITY>
+	</TX_BODY>
+	<TX_EMB/>
+</TX>
