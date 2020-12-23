@@ -1,13 +1,14 @@
 package com.nantian.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import org.apache.http.client.ClientProtocolException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +19,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.nantian.common.config.AppConfig;
+import com.nantian.common.service.HttpClientService;
 import com.nantian.common.vo.ResultVO;
-import com.nantian.entity.User;
-import com.nantian.service.UserService;
+import com.nantian.entity.Demo;
 
 
 /**
@@ -29,43 +29,35 @@ import com.nantian.service.UserService;
  */
 @Controller
 @RequestMapping(value = "/user")
-public class UserController {
+public class DemoController {
 	
-	private static Logger log = LoggerFactory.getLogger(UserController.class);
+	private static Logger log = LoggerFactory.getLogger(DemoController.class);
 	
 	
-    @Autowired
-    private UserService userService;
-
+	@Autowired
+	private HttpClientService httpClientService;
+	
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ModelAndView login(@RequestBody User model, HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+    public ModelAndView login(@RequestBody Demo model, HttpServletRequest request, HttpServletResponse response) {
     	log.info("66" + model.toString());
-    	User user = userService.findUserByName("11");
-    	log.info(user.toString());
-    	
-    	//session.setAttribute("user", user); // 不生效 ?
     	
     	ModelAndView mav = new ModelAndView();
     	mav.setViewName("index");
-    	mav.getModel().put("user", user);
+    	mav.getModel().put("user", model);
     	return mav;
-    	
-    	/*
-        if (user == null || !user.getPassword().equals(model.getPassword())) {
-            return new ModelAndView("redirect:/login.jsp");
-        } else {
-            session.setAttribute("user", user);
-            ModelAndView mav = new ModelAndView();
-            mav.setViewName("index");
-            return mav;
-        }
-        */
     }
+    
+    @RequestMapping(value = "/text", method = RequestMethod.GET)
+    public void text(HttpServletRequest request, HttpServletResponse response) throws ClientProtocolException, IOException {
+    
+    	log.info(httpClientService.doGet("http://www.baidu.com"));
+    	
+    }
+    
     
     @ResponseBody
     @RequestMapping(value = "/json", method = RequestMethod.POST)
-    public ResultVO<Map> json(@RequestBody List<Map<String, Object>> list, HttpServletRequest request, HttpServletResponse response, HttpSession session) {
-    	log.info(AppConfig.getConfig("server.port"));
+    public ResultVO<Map> json(@RequestBody List<Map<String, Object>> list, HttpServletRequest request, HttpServletResponse response) {
     	log.info("请求：" + list.toString());
     	
     	ResultVO<Map> result = ResultVO.getNewResultVO();
@@ -74,7 +66,7 @@ public class UserController {
     	
     	result.setCode("200");
     	result.setMsg("success");
-    	result.setData(map);
+    	result.setResult(map);
     	return result;
     	
     }

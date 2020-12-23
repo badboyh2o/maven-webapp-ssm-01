@@ -1,6 +1,6 @@
 package com.nantian.service;
 
-import com.nantian.entity.User;
+import com.nantian.entity.Demo;
 
 public interface UserService {
     
@@ -9,5 +9,5 @@ public interface UserService {
      * @param name
      * @return
      */
-    public User findUserByName(String name);
+    public Demo findUserByName(String name);
 }

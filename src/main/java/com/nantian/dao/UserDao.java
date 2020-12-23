@@ -1,6 +1,6 @@
 package com.nantian.dao;
 
-import com.nantian.entity.User;
+import com.nantian.entity.Demo;
 
 public interface UserDao {
     
@@ -9,5 +9,5 @@ public interface UserDao {
      * @param username
      * @return
      */
-    public User findByUsername(String username);
+    public Demo findByUsername(String username);
 }

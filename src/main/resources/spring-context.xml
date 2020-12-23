@@ -9,9 +9,6 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
-
-    <!-- 导入其他配置文件 -->
-    <import resource="spring-mybatis.xml" />
     
     <!-- 使用Annotation自动注册Bean，解决事物失效问题：在主容器中不扫描@Controller注解，在SpringMvc中只扫描@Controller注解。  -->
     <context:component-scan base-package="com.nantian"><!-- base-package 如果多个，用“,”分隔 -->
@@ -19,34 +16,25 @@
         <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
     
-    <!-- 开启AOP注解扫描 -->
-    <aop:aspectj-autoproxy proxy-target-class="true" />
+    <!-- 引入 httpclient -->
+    <import resource="spring-httpclient.xml" />
+    
+    
+    <!-- 20201223 注释 不使用数据库，注释以下 bean -->
+    
+    <!-- 导入其他配置文件 -->
+    <!-- <import resource="spring-mybatis.xml" /> -->
 
     <!-- 事务管理器，依赖于数据源 -->
+    <!--
     <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>
+    -->
     
-    <!-- 编写通知：对事务进行增强（通知），需要编写对切入点和具体执行事务细节 -->
-    <tx:advice id="txAdvice" transaction-manager="txManager">
-        <tx:attributes>
-            <!--
-                为切入点方法添加事务详情
-                name：方法名，*表示任意方法名称
-                propagation：设置传播行为
-                isolation：设置隔离级别
-                read-only：是否只读
-            -->
-            <tx:method name="add*" propagation="REQUIRED" isolation="DEFAULT" read-only="false" rollback-for="Exception" />
-            <tx:method name="delete*" propagation="REQUIRED" isolation="DEFAULT" read-only="false" rollback-for="Exception" />
-            <tx:method name="update*" propagation="REQUIRED" isolation="DEFAULT" read-only="false" rollback-for="Exception" />
-        </tx:attributes>
-    </tx:advice>
-    
-    <!-- 设置AOP，让Spring自动对目标生成代理，需要使用AspectJ表达式 -->
-    <aop:config proxy-target-class="true">
-        <!-- 切面：整合切入点和通知 -->
-        <aop:advisor advice-ref="txAdvice" pointcut="within(com.nantian.controller..*)" />
-    </aop:config>
+    <!-- 配置 Annotation 驱动，扫描@Transactional注解的类定义事务  -->
+    <!--
+    <tx:annotation-driven transaction-manager="txManager" proxy-target-class="true"/>
+    -->
 
 </beans>

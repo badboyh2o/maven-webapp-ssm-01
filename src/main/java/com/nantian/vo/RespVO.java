@@ -1,12 +1,11 @@
-package com.nantian.common.vo;
+package com.nantian.vo;
 
 
 /**
- * 封装返回结果
- *
+ * 返回值
  * @param <T>
  */
-public class ResultVO<T> {
+public class RespVO<T> {
     private String code;
     private String msg;
     private T result;
@@ -16,23 +15,23 @@ public class ResultVO<T> {
      * @param <T>
      * @return
      */
-    public static <T> ResultVO<T> getNewResultVO() {
-        return new ResultVO<T>();
+    public static <T> RespVO<T> getNewResultVO() {
+        return new RespVO<T>();
     }
     
     // 构造器
-    public ResultVO() {
+    public RespVO() {
         super();
     }
-    public ResultVO(String code) {
+    public RespVO(String code) {
         super();
         this.code = code;
     }
-    public ResultVO(String code, String msg) {
+    public RespVO(String code, String msg) {
         this.code = code;
         this.msg = msg;
     }
-    public ResultVO(String code, String msg, T result) {
+    public RespVO(String code, String msg, T result) {
         this.code = code;
         this.msg = msg;
         this.result = result;

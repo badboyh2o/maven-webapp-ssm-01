@@ -1,6 +1,6 @@
 package com.nantian.entity;
 
-public class User {
+public class Demo {
     /**
      * 用户信息
      */
@@ -10,7 +10,7 @@ public class User {
     private String password;
 
     // 构造函数
-    public User() {
+    public Demo() {
         super();
     }
 
@@ -19,7 +19,7 @@ public class User {
 		return "User [userid=" + userid + ", username=" + username + ", password=" + password + "]";
 	}
 
-	public User(Integer userid, String username, String password) {
+	public Demo(Integer userid, String username, String password) {
         super();
         this.userid = userid;
         this.username = username;
