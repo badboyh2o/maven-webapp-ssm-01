@@ -1,87 +1,32 @@
 package com.nantian.vo.p10.resp;
 
+import java.util.List;
+
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 public class TxRespBodyEntityVO {
-
-	private String Trstr_InsID;
-	private String Chnl_ID;
-	private String IdCst_CrLine;
-	private String Cst_Lgl_Nm;
-	private String Crdt_TpCd;
-	private String Crdt_No;
-	private String Cr_Vrty_Cd_Dsc;
+	private String Ret_Col_Set_Inf;
+	private String Clmn_Opt_Dsc;
 	
-	@XStreamAlias("CGS_GJJ_GRP")
-	private TxRespBodyEntityGjjVO txRespBodyEntityGjj;
+	@XStreamAlias("ENQR_RST_GRP")
+	private List<TxEnqrRstVO> ENQR_RST_GRP;
 
-	
-	
-	public TxRespBodyEntityVO() {
-		super();
+	public String getRet_Col_Set_Inf() {
+		return Ret_Col_Set_Inf;
 	}
-
-	public String getTrstr_InsID() {
-		return Trstr_InsID;
+	public void setRet_Col_Set_Inf(String ret_Col_Set_Inf) {
+		Ret_Col_Set_Inf = ret_Col_Set_Inf;
 	}
-
-	public void setTrstr_InsID(String trstr_InsID) {
-		Trstr_InsID = trstr_InsID;
+	public String getClmn_Opt_Dsc() {
+		return Clmn_Opt_Dsc;
 	}
-
-	public String getChnl_ID() {
-		return Chnl_ID;
+	public void setClmn_Opt_Dsc(String clmn_Opt_Dsc) {
+		Clmn_Opt_Dsc = clmn_Opt_Dsc;
 	}
-
-	public void setChnl_ID(String chnl_ID) {
-		Chnl_ID = chnl_ID;
+	public List<TxEnqrRstVO> getENQR_RST_GRP() {
+		return ENQR_RST_GRP;
 	}
-
-	public String getIdCst_CrLine() {
-		return IdCst_CrLine;
-	}
-
-	public void setIdCst_CrLine(String idCst_CrLine) {
-		IdCst_CrLine = idCst_CrLine;
-	}
-
-	public String getCst_Lgl_Nm() {
-		return Cst_Lgl_Nm;
-	}
-
-	public void setCst_Lgl_Nm(String cst_Lgl_Nm) {
-		Cst_Lgl_Nm = cst_Lgl_Nm;
-	}
-
-	public String getCrdt_TpCd() {
-		return Crdt_TpCd;
-	}
-
-	public void setCrdt_TpCd(String crdt_TpCd) {
-		Crdt_TpCd = crdt_TpCd;
-	}
-
-	public String getCrdt_No() {
-		return Crdt_No;
-	}
-
-	public void setCrdt_No(String crdt_No) {
-		Crdt_No = crdt_No;
-	}
-
-	public TxRespBodyEntityGjjVO getTxRespBodyEntityGjj() {
-		return txRespBodyEntityGjj;
-	}
-
-	public void setTxRespBodyEntityGjj(TxRespBodyEntityGjjVO txRespBodyEntityGjj) {
-		this.txRespBodyEntityGjj = txRespBodyEntityGjj;
-	}
-
-	public String getCr_Vrty_Cd_Dsc() {
-		return Cr_Vrty_Cd_Dsc;
-	}
-
-	public void setCr_Vrty_Cd_Dsc(String cr_Vrty_Cd_Dsc) {
-		Cr_Vrty_Cd_Dsc = cr_Vrty_Cd_Dsc;
+	public void setENQR_RST_GRP(List<TxEnqrRstVO> eNQR_RST_GRP) {
+		ENQR_RST_GRP = eNQR_RST_GRP;
 	}
 }

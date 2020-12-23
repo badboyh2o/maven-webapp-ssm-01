@@ -7,6 +7,7 @@ public class TxRespHeadVO {
 	private String SYS_TTL_LEN;
 	private String SYS_REQ_SEC_ID;
 	private String SYS_SND_SEC_ID;
+	private String SYS_TX_TYPE;
 	private String SYS_EVT_TRACE_ID;
 	private String SYS_SND_SERIAL_NO;
 	private String SYS_PKG_TYPE;
@@ -16,19 +17,12 @@ public class TxRespHeadVO {
 	private String SYS_COMPRESS_TYPE;
 	private String SYS_EMB_MSG_LEN;
 	private String SYS_RECV_TIME;
-    private String SYS_RESP_TIME;
-    private String SYS_PKG_STS_TYPE;
-    private String SYS_TX_STATUS;
-    private String SYS_RESP_CODE;
-    private String SYS_RESP_DESC_LEN;
-    private String SYS_RESP_DESC;
-    private String SYS_TX_TYPE;
-    // 旧接口有的字段
-    private String SYS_TX_CODE;
-    private String SYS_TX_VRSN;
-    private String SYS_REQ_TIME;
-    private String SYS_TIME_LEFT;
-    private String SYS_RESERVED;
+	private String SYS_RESP_TIME;
+	private String SYS_PKG_STS_TYPE;
+	private String SYS_TX_STATUS;
+	private String SYS_RESP_CODE;
+	private String SYS_RESP_DESC_LEN;
+	private String SYS_RESP_DESC;
     
 	public TxRespHeadVO() {
 		super();
@@ -160,45 +154,4 @@ public class TxRespHeadVO {
 	public void setSYS_TX_TYPE(String sYS_TX_TYPE) {
 		SYS_TX_TYPE = sYS_TX_TYPE;
 	}
-
-	public String getSYS_TX_CODE() {
-		return SYS_TX_CODE;
-	}
-
-	public void setSYS_TX_CODE(String sYS_TX_CODE) {
-		SYS_TX_CODE = sYS_TX_CODE;
-	}
-
-	public String getSYS_TX_VRSN() {
-		return SYS_TX_VRSN;
-	}
-
-	public void setSYS_TX_VRSN(String sYS_TX_VRSN) {
-		SYS_TX_VRSN = sYS_TX_VRSN;
-	}
-
-	public String getSYS_RESERVED() {
-		return SYS_RESERVED;
-	}
-
-	public void setSYS_RESERVED(String sYS_RESERVED) {
-		SYS_RESERVED = sYS_RESERVED;
-	}
-
-	public String getSYS_REQ_TIME() {
-		return SYS_REQ_TIME;
-	}
-
-	public void setSYS_REQ_TIME(String sYS_REQ_TIME) {
-		SYS_REQ_TIME = sYS_REQ_TIME;
-	}
-
-	public String getSYS_TIME_LEFT() {
-		return SYS_TIME_LEFT;
-	}
-
-	public void setSYS_TIME_LEFT(String sYS_TIME_LEFT) {
-		SYS_TIME_LEFT = sYS_TIME_LEFT;
-	}
-	
 }
