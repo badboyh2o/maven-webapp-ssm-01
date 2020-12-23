@@ -23,7 +23,7 @@
       <scope>test</scope>
     </dependency>
     
-    <!-- jsp-api -->
+    <!-- jsp-api provided -->
     <dependency>
         <groupId>javax.servlet.jsp</groupId>
         <artifactId>jsp-api</artifactId>
@@ -31,7 +31,7 @@
         <scope>provided</scope>
     </dependency>
 
-    <!-- servlet-api -->
+    <!-- servlet-api provided -->
     <dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>javax.servlet-api</artifactId>
@@ -45,7 +45,12 @@
         <artifactId>jstl</artifactId>
         <version>1.2</version>
     </dependency>
-
+    <dependency>
+        <groupId>taglibs</groupId>
+        <artifactId>standard</artifactId>
+        <version>1.1.2</version>
+    </dependency>
+    
     <!-- Spring相关包 -->
     <dependency>
         <groupId>org.springframework</groupId>
@@ -118,16 +123,15 @@
 
     <!-- 日志相关包 -->
     <dependency>
-        <groupId>log4j</groupId>
-        <artifactId>log4j</artifactId>
-        <version>1.2.17</version>
-    </dependency>
-    <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
         <version>1.7.21</version>
     </dependency>
-    
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>1.6.1</version>
+    </dependency>
   </dependencies>
   
   

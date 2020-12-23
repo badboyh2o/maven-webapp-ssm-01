@@ -7,7 +7,7 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <!-- 启动自动扫描 -->
+    <!-- 启动自动扫描 默认会扫描 @Controller @Service 这些注解，use-default-filters=false 表示不自动扫描所有注解，仅扫描 context:include-filter 指定的注解 -->
     <context:component-scan base-package="maven.webapp.badboyh2o" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
         <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
@@ -16,17 +16,27 @@
     <!-- 注册MVC注解驱动 -->
     <!-- 在spring中一般采用@RequestMapping注解来完成映射关系，
                 要想使@RequestMapping注解生效必须向上下文中注册DefaultAnnotationHandlerMapping和一个AnnotationMethodHandlerAdapter实例，
-                这两个实例分别在类级别和方法级别处理。
-                而annotation-driven配置帮助我们自动完成上述两个实例的注入。 -->
+                这两个实例分别在类级别和方法级别处理。而annotation-driven配置帮助我们自动完成上述两个实例的注入。 -->
     <mvc:annotation-driven />
 
-    <!-- Spring MVC不处理静态资源 -->
-    <mvc:default-servlet-handler />
+    <!--  
+	<mvc:default-servlet-handler /> 主要是注册了
+		DefaultServletHttpRequestHandler    默认的Servlet请求处理器
+		SimpleUrlHandlerMapping             url - handler映射器
+		HttpRequestHandlerAdapter           处理器适配器
+		
+		静态资源访问是通过uri直接去定位资源，中间不需要繁琐的解析操作，
+		所以这里的映射为 SimpleUrlHandlerMapping 简单直接的映射,
+		映射找到处理器DefaultServletHttpRequestHandler，
+		然后使用HttpRequestHandlerAdapter适配处理器，然后执行就可以将请求的静态资源返回给客户端。
+    -->
+    <!-- 将静态资源的请求转由Web应用服务器 默认的Servlet处理， default-servlet-name 指定web服务器的默认servlet（默认是default）, tomcat默认servlet时default  -->
+    <mvc:default-servlet-handler default-servlet-name="default"/>
 
     <!-- 配置视图解析器，可以显式设置，也可以不设置，不设置会依据SpringMVC的默认设置 -->
     <bean id="viewResolver"
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/" />
+        <property name="prefix" value="/WEB-INF/views/" />
         <property name="suffix" value=".jsp" />
     </bean>
 </beans>
