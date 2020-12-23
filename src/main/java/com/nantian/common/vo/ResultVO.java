@@ -2,7 +2,7 @@ package com.nantian.common.vo;
 
 
 /**
- * ajax 接口的返回结果封装类
+ * 封装返回结果
  *
  * @param <T>
  */

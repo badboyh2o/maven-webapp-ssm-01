@@ -9,19 +9,18 @@
   <url>http://maven.apache.org</url>
   
   <properties>
-        <spring.version>4.1.9.RELEASE</spring.version>
-        
-        <!-- tools version setting -->
-        <validator.version>5.2.4.Final</validator.version>
-        <jackson.version>2.2.3</jackson.version>
-        
-        <commons-lang3.version>3.3.2</commons-lang3.version>
-        <commons-io.version>2.4</commons-io.version>
-        <commons-codec.version>1.9</commons-codec.version>
-        <commons-fileupload.version>1.3.1</commons-fileupload.version>
-        <commons-beanutils.version>1.9.1</commons-beanutils.version>
-        
-        <guava.version>17.0</guava.version>
+	<!-- spring version -->
+	<spring.version>4.1.9.RELEASE</spring.version>
+	
+	<!-- tools version -->
+	<validator.version>5.2.4.Final</validator.version>
+	<jackson.version>2.2.3</jackson.version>
+	<commons-lang3.version>3.3.2</commons-lang3.version>
+	<commons-io.version>2.4</commons-io.version>
+	<commons-codec.version>1.9</commons-codec.version>
+	<commons-fileupload.version>1.3.1</commons-fileupload.version>
+	<commons-beanutils.version>1.9.1</commons-beanutils.version>
+	<guava.version>17.0</guava.version>
   </properties>
   
   
@@ -201,7 +200,7 @@
         <version>${jackson.version}</version>
     </dependency>
     
-    <!-- utils begin -->
+    <!-- common utils begin -->
     <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-lang3</artifactId>

@@ -3,11 +3,6 @@
   <display-name>Archetype Created Web Application</display-name>
   
   
-  <welcome-file-list>
-    <welcome-file>static/index.html</welcome-file>
-  </welcome-file-list>
-  
-  
    <!-- Spring监听器 -->
    <listener>
        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
