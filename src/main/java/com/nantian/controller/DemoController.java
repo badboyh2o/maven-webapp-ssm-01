@@ -50,7 +50,7 @@ public class DemoController {
     @RequestMapping(value = "/text", method = RequestMethod.GET)
     public void text(HttpServletRequest request, HttpServletResponse response) throws ClientProtocolException, IOException {
     
-    	log.info(httpClientService.doGet("http://www.baidu.com"));
+    	log.info(httpClientService.doGet("http://www.baidu.com/"));
     	
     }
     

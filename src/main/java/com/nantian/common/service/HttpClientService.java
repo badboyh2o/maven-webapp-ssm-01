@@ -22,9 +22,6 @@ import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.nantian.vo.RespVO;
-
-
 @Service
 public class HttpClientService {
 
@@ -44,7 +41,7 @@ public class HttpClientService {
 	public String doGet(String url) throws ClientProtocolException, IOException {
 		// 创建http GET请求
 		HttpGet httpGet = new HttpGet(url);
-		httpGet.setConfig(this.requestConfig);
+		//httpGet.setConfig(this.requestConfig);
 
 		CloseableHttpResponse response = null;
 		try {
@@ -89,7 +86,7 @@ public class HttpClientService {
 	 * @return
 	 * @throws IOException
 	 */
-	public RespVO<Map<String, Object>> doPost(String url, Map<String, String> params) throws IOException {
+	public String doPost(String url, Map<String, String> params) throws IOException {
 		// 创建http POST请求
 		HttpPost httpPost = new HttpPost(url);
 		httpPost.setConfig(this.requestConfig);
@@ -110,11 +107,7 @@ public class HttpClientService {
 			// 执行请求
 			response = httpClient.execute(httpPost);
 			
-			RespVO<Map<String, Object>> result = RespVO.getNewResultVO();
-			result.setCode(Integer.toString(response.getStatusLine().getStatusCode()));
-			result.setMsg(EntityUtils.toString(response.getEntity(), "UTF-8"));
-			
-			return result;
+			return EntityUtils.toString(response.getEntity(), "UTF-8");
 			
 		} finally {
 			if (response != null) {
@@ -130,7 +123,7 @@ public class HttpClientService {
 	 * @return
 	 * @throws IOException
 	 */
-	public RespVO<Map<String, Object>> doPost(String url) throws IOException {
+	public String doPost(String url) throws IOException {
 		return this.doPost(url, null);
 	}
 
@@ -143,7 +136,7 @@ public class HttpClientService {
 	 * @throws ClientProtocolException
 	 * @throws IOException
 	 */
-	public RespVO<Map<String, Object>> doPostJson(String url, String json) throws ClientProtocolException, IOException {
+	public String doPostJson(String url, String json) throws ClientProtocolException, IOException {
 		// 创建http POST请求
 		HttpPost httpPost = new HttpPost(url);
 		httpPost.setConfig(this.requestConfig);
@@ -160,16 +153,30 @@ public class HttpClientService {
 			// 执行请求
 			response = this.httpClient.execute(httpPost);
 			
-			RespVO<Map<String, Object>> result = RespVO.getNewResultVO();
-			result.setCode(Integer.toString(response.getStatusLine().getStatusCode()));
-			result.setMsg(EntityUtils.toString(response.getEntity(), "UTF-8"));
-			
-			return result;
+			return EntityUtils.toString(response.getEntity(), "UTF-8");
 		} finally {
 			if (response != null) {
 				response.close();
 			}
 		}
+	}
+	
+	
+	
+	/***
+	 * 执行POST请求
+	 * 
+	 * @param url		url
+	 * @param headers	请求头
+	 * @param body		请求体
+	 * @param charset	通信编码格式
+	 * @return
+	 * @throws IOException
+	 */
+	public String doPost(String url, Map<String, String> headers, String body, String charset) {
+	
+	
+		return null;
 	}
 
 }

@@ -247,6 +247,13 @@
 	    <version>4.5.2</version>
 	</dependency>
     
+    <!-- xstream xml -->
+    <dependency>
+        <groupId>com.thoughtworks.xstream</groupId>
+        <artifactId>xstream</artifactId>
+        <version>1.4.9</version>
+    </dependency>
+    
   </dependencies>
   
   <build>
