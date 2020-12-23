@@ -1,7 +1,7 @@
 /**
  * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
  */
-package maven.webapp.badboyh2o.common.config;
+package com.nantian.common.config;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,8 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.io.DefaultResourceLoader;
 
 import com.google.common.collect.Maps;
-
-import maven.webapp.badboyh2o.common.util.PropertiesLoader;
+import com.nantian.common.util.PropertiesLoader;
 
 /**
  * 全局配置类 懒汉式单例类.在第一次调用的时候实例化自己

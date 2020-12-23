@@ -1,4 +1,4 @@
-package maven.webapp.badboyh2o.domain;
+package com.nantian.entity;
 
 public class User {
     /**

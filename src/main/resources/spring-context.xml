@@ -14,7 +14,7 @@
     <import resource="spring-mybatis.xml" />
     
     <!-- 使用Annotation自动注册Bean，解决事物失效问题：在主容器中不扫描@Controller注解，在SpringMvc中只扫描@Controller注解。  -->
-    <context:component-scan base-package="maven.webapp.badboyh2o"><!-- base-package 如果多个，用“,”分隔 -->
+    <context:component-scan base-package="com.nantian"><!-- base-package 如果多个，用“,”分隔 -->
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
         <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
@@ -46,7 +46,7 @@
     <!-- 设置AOP，让Spring自动对目标生成代理，需要使用AspectJ表达式 -->
     <aop:config proxy-target-class="true">
         <!-- 切面：整合切入点和通知 -->
-        <aop:advisor advice-ref="txAdvice" pointcut="within(maven.webapp.badboyh2o.controller..*)" />
+        <aop:advisor advice-ref="txAdvice" pointcut="within(com.nantian.controller..*)" />
     </aop:config>
 
 </beans>

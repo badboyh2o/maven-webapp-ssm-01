@@ -8,7 +8,7 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!-- 启动自动扫描 默认会扫描 @Controller @Service 这些注解，use-default-filters=false 表示不自动扫描所有注解，仅扫描 context:include-filter 指定的注解 -->
-    <context:component-scan base-package="maven.webapp.badboyh2o" use-default-filters="false">
+    <context:component-scan base-package="com.nantian" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
         <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>

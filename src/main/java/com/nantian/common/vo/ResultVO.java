@@ -1,4 +1,4 @@
-package maven.webapp.badboyh2o.common.vo;
+package com.nantian.common.vo;
 
 
 /**

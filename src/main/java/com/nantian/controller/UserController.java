@@ -1,4 +1,4 @@
-package maven.webapp.badboyh2o.controller;
+package com.nantian.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import maven.webapp.badboyh2o.common.config.AppConfig;
-import maven.webapp.badboyh2o.common.vo.ResultVO;
-import maven.webapp.badboyh2o.domain.User;
-import maven.webapp.badboyh2o.service.impl.UserService;
+import com.nantian.common.config.AppConfig;
+import com.nantian.common.vo.ResultVO;
+import com.nantian.entity.User;
+import com.nantian.service.UserService;
 
 
 /**

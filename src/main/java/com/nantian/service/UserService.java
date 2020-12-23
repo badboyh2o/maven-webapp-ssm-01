@@ -1,6 +1,6 @@
-package maven.webapp.badboyh2o.service.impl;
+package com.nantian.service;
 
-import maven.webapp.badboyh2o.domain.User;
+import com.nantian.entity.User;
 
 public interface UserService {
     

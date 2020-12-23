@@ -5,7 +5,7 @@
 <configuration>
     <!-- 设置实体别名, 如果省略该配置, mapper xml中的返回类型需要写全类路径 -->
     <typeAliases>
-        <package name="maven.webapp.badboyh2o.domain" />
+        <package name="com.nantian.entity" />
     </typeAliases>
 
 </configuration>
