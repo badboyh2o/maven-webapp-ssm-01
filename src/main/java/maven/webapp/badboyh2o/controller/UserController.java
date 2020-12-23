@@ -1,5 +1,9 @@
 package maven.webapp.badboyh2o.controller;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -11,10 +15,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import maven.webapp.badboyh2o.common.config.AppConfig;
+import maven.webapp.badboyh2o.common.vo.ResultVO;
 import maven.webapp.badboyh2o.domain.User;
 import maven.webapp.badboyh2o.service.impl.UserService;
+
 
 /**
  * 用户控制器
@@ -29,8 +37,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView login(User model, HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public ModelAndView login(@RequestBody User model, HttpServletRequest request, HttpServletResponse response, HttpSession session) {
     	log.info("66" + model.toString());
     	User user = userService.findUserByName("11");
     	log.info(user.toString());
@@ -53,4 +61,24 @@ public class UserController {
         }
         */
     }
+    
+    @ResponseBody
+    @RequestMapping(value = "/json", method = RequestMethod.POST)
+    public ResultVO<Map> json(@RequestBody List<Map<String, Object>> list, HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+    	log.info(AppConfig.getConfig("server.port"));
+    	log.info("请求：" + list.toString());
+    	
+    	ResultVO<Map> result = ResultVO.getNewResultVO();
+    	Map map = new HashMap<>();
+    	map.put("Data_a1_1", "data1");
+    	
+    	result.setCode("200");
+    	result.setMsg("success");
+    	result.setData(map);
+    	return result;
+    	
+    }
+    
+    
+    
 }
