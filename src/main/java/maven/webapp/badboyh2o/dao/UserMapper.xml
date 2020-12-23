@@ -4,7 +4,7 @@
 <mapper namespace="maven.webapp.badboyh2o.dao.UserDao">
 
 
-    <select id="findByUsername" parameterType="string" resultType="User">
+    <select id="findByUsername" parameterType="string" resultType="maven.webapp.badboyh2o.domain.User">
         SELECT * FROM userinfo WHERE username=#{username}
     </select>
     

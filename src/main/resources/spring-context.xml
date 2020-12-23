@@ -10,6 +10,15 @@
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+    <!-- 导入其他配置文件 -->
+    <import resource="spring-mybatis.xml" />
+    
+    <!-- 使用Annotation自动注册Bean，解决事物失效问题：在主容器中不扫描@Controller注解，在SpringMvc中只扫描@Controller注解。  -->
+    <context:component-scan base-package="maven.webapp.badboyh2o"><!-- base-package 如果多个，用“,”分隔 -->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    </context:component-scan>
+    
     <!-- 开启AOP注解扫描 -->
     <aop:aspectj-autoproxy proxy-target-class="true" />
 
@@ -40,12 +49,4 @@
         <aop:advisor advice-ref="txAdvice" pointcut="within(maven.webapp.badboyh2o.controller..*)" />
     </aop:config>
 
-        <!-- 导入其他配置文件 -->
-    <import resource="spring-mybatis.xml" />
-    
-    <!-- 使用Annotation自动注册Bean，解决事物失效问题：在主容器中不扫描@Controller注解，在SpringMvc中只扫描@Controller注解。  -->
-    <context:component-scan base-package="maven.webapp.badboyh2o"><!-- base-package 如果多个，用“,”分隔 -->
-        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-    </context:component-scan>
-    
 </beans>

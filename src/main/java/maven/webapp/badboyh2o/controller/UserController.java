@@ -1,5 +1,7 @@
 package maven.webapp.badboyh2o.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +24,9 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ModelAndView login(User model, HttpSession session) {
+    public ModelAndView login(User model, HttpServletRequest request, HttpServletResponse response, HttpSession session) {
         User user = userService.findUserByName(model.getUsername());
-
+        
         if (user == null || !user.getPassword().equals(model.getPassword())) {
             return new ModelAndView("redirect:/login.jsp");
         } else {

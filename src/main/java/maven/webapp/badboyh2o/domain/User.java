@@ -14,7 +14,12 @@ public class User {
         super();
     }
 
-    public User(Integer userid, String username, String password) {
+    @Override
+	public String toString() {
+		return "User [userid=" + userid + ", username=" + username + ", password=" + password + "]";
+	}
+
+	public User(Integer userid, String username, String password) {
         super();
         this.userid = userid;
         this.username = username;
