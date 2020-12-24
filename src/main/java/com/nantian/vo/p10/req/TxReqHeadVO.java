@@ -1,7 +1,6 @@
 package com.nantian.vo.p10.req;
 
 public class TxReqHeadVO {
-
 	private String SYS_HDR_LEN;
 	private String SYS_PKG_VRSN;
 	private String SYS_TTL_LEN;
@@ -22,11 +21,11 @@ public class TxReqHeadVO {
 	private String SYS_REQ_TIME;
 	private String SYS_TIME_LEFT;
 	private String SYS_PKG_STS_TYPE;
-	private String SYS_SEC_CONTEXT_LEN;
-	private String SYS_SEC_CONTEXT;
+	
 	public TxReqHeadVO() {
 		super();
 	}
+	
 	public String getSYS_HDR_LEN() {
 		return SYS_HDR_LEN;
 	}
@@ -146,18 +145,6 @@ public class TxReqHeadVO {
 	}
 	public void setSYS_PKG_STS_TYPE(String sYS_PKG_STS_TYPE) {
 		SYS_PKG_STS_TYPE = sYS_PKG_STS_TYPE;
-	}
-	public String getSYS_SEC_CONTEXT_LEN() {
-		return SYS_SEC_CONTEXT_LEN;
-	}
-	public void setSYS_SEC_CONTEXT_LEN(String sYS_SEC_CONTEXT_LEN) {
-		SYS_SEC_CONTEXT_LEN = sYS_SEC_CONTEXT_LEN;
-	}
-	public String getSYS_SEC_CONTEXT() {
-		return SYS_SEC_CONTEXT;
-	}
-	public void setSYS_SEC_CONTEXT(String sYS_SEC_CONTEXT) {
-		SYS_SEC_CONTEXT = sYS_SEC_CONTEXT;
 	}
 	
 }

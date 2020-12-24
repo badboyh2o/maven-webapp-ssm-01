@@ -2,13 +2,13 @@ package com.nantian.vo.p10.resp;
 
 import java.util.List;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
 public class TxRespBodyEntityVO {
 	private String Ret_Col_Set_Inf;
 	private String Clmn_Opt_Dsc;
 	
-	@XStreamAlias("ENQR_RST_GRP")
+	@XStreamImplicit(itemFieldName = "ENQR_RST_GRP")
 	private List<TxEnqrRstVO> ENQR_RST_GRP;
 
 	public String getRet_Col_Set_Inf() {

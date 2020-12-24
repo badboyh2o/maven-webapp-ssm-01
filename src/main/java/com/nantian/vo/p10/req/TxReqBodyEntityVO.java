@@ -1,72 +1,37 @@
 package com.nantian.vo.p10.req;
 
 public class TxReqBodyEntityVO {
-
-	private String TXN_INSID;
-	private String XingMing;
-	private String Trstr_Nm;
-	private String ZJLX;
-	private String Trstr_InsID;
-	private String TXN_STFF_ID;
-	private String ZJHM;
+	private String Cmpt_ID;
+	private String Svc_ID;
+	private String Bsn_Parm_Fld_Nm;
+	private String Enqr_Cnd_Cntnt;
 	
 	public TxReqBodyEntityVO() {
 		super();
 	}
-
-	public String getTXN_INSID() {
-		return TXN_INSID;
+	public String getCmpt_ID() {
+		return Cmpt_ID;
+	}
+	public void setCmpt_ID(String cmpt_ID) {
+		Cmpt_ID = cmpt_ID;
+	}
+	public String getSvc_ID() {
+		return Svc_ID;
+	}
+	public void setSvc_ID(String svc_ID) {
+		Svc_ID = svc_ID;
+	}
+	public String getBsn_Parm_Fld_Nm() {
+		return Bsn_Parm_Fld_Nm;
+	}
+	public void setBsn_Parm_Fld_Nm(String bsn_Parm_Fld_Nm) {
+		Bsn_Parm_Fld_Nm = bsn_Parm_Fld_Nm;
+	}
+	public String getEnqr_Cnd_Cntnt() {
+		return Enqr_Cnd_Cntnt;
+	}
+	public void setEnqr_Cnd_Cntnt(String enqr_Cnd_Cntnt) {
+		Enqr_Cnd_Cntnt = enqr_Cnd_Cntnt;
 	}
 
-	public void setTXN_INSID(String tXN_INSID) {
-		TXN_INSID = tXN_INSID;
-	}
-
-	public String getXingMing() {
-		return XingMing;
-	}
-
-	public void setXingMing(String xingMing) {
-		XingMing = xingMing;
-	}
-
-	public String getTrstr_Nm() {
-		return Trstr_Nm;
-	}
-
-	public void setTrstr_Nm(String trstr_Nm) {
-		Trstr_Nm = trstr_Nm;
-	}
-
-	public String getZJLX() {
-		return ZJLX;
-	}
-
-	public void setZJLX(String zJLX) {
-		ZJLX = zJLX;
-	}
-
-	public String getTrstr_InsID() {
-		return Trstr_InsID;
-	}
-
-	public void setTrstr_InsID(String trstr_InsID) {
-		Trstr_InsID = trstr_InsID;
-	}
-
-	public String getTXN_STFF_ID() {
-		return TXN_STFF_ID;
-	}
-
-	public void setTXN_STFF_ID(String tXN_STFF_ID) {
-		TXN_STFF_ID = tXN_STFF_ID;
-	}
-
-	public String getZJHM() {
-		return ZJHM;
-	}
-
-	public void setZJHM(String zJHM) {
-		ZJHM = zJHM;
-	}
 }

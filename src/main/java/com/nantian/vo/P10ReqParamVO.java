@@ -2,12 +2,15 @@ package com.nantian.vo;
 
 import java.util.Map;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 /**
  * P10数据请求中的 req_params 封装
  * @author badboyh20
  *
  */
 public class P10ReqParamVO {
+	@NotEmpty
 	private String page_jump;
 	private String rec_in_page;
 	private Map<String, String> params;

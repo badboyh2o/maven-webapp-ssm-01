@@ -19,7 +19,6 @@
     <!-- 引入 httpclient -->
     <import resource="spring-httpclient.xml" />
     
-    
     <!-- 20201223 注释 不使用数据库，注释以下 bean -->
     
     <!-- 导入其他配置文件 -->
