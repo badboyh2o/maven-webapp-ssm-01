@@ -1,7 +1,9 @@
 package com.nantian.service.impl;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -30,6 +32,9 @@ import com.nantian.vo.p10.req.TxReqBodyEntityVO;
 import com.nantian.vo.p10.req.TxReqBodyVO;
 import com.nantian.vo.p10.req.TxReqHeadVO;
 import com.nantian.vo.p10.req.TxReqVO;
+import com.nantian.vo.p10.resp.TxEnqrRstVO;
+import com.nantian.vo.p10.resp.TxRespBodyCommonBVO;
+import com.nantian.vo.p10.resp.TxRespBodyEntityVO;
 import com.nantian.vo.p10.resp.TxRespVO;
 
 
@@ -67,10 +72,60 @@ public class P10DataServiceImpl implements P10DataService {
 	 * @return
 	 */
 	private ResultVO<P10ResultDataVO> createP10DataResult(TxRespVO txRespVO) {
+		// 返回结果
+		ResultVO<P10ResultDataVO> result = ResultVO.getNewResultVO();
 		
+		// TODO
+		result.setCode("0");
+		result.setMsg("0");
 		
+		TxRespBodyCommonBVO txRespBodyCommonBVO = txRespVO.getTxRespBody().getTxRespBodyCommon().getTxRespBodyCommonBVO();
 		
-		return null;
+		P10ResultDataVO P10ResultDataVO = new P10ResultDataVO();
+		P10ResultDataVO.setCurr_total_page(txRespBodyCommonBVO.getCURR_TOTAL_PAGE());
+		P10ResultDataVO.setCurr_total_rec(txRespBodyCommonBVO.getCURR_TOTAL_REC());
+		P10ResultDataVO.setTotal_page(txRespBodyCommonBVO.getTOTAL_PAGE());
+		P10ResultDataVO.setTotal_rec(txRespBodyCommonBVO.getTOTAL_REC());
+		P10ResultDataVO.setResult_data(resolveP10TxRespEntity(txRespVO.getTxRespBody().getTxRespBodyEntity()));
+		
+		result.setResult(P10ResultDataVO);
+		
+		return result;
+	}
+
+
+	/**
+	 * 	解析P10接口响应体
+	 * 
+	 * @param txRespBodyEntity
+	 * @return
+	 */
+	private List<Map<String, Object>> resolveP10TxRespEntity(TxRespBodyEntityVO txRespBodyEntity) {
+		// 返回结果
+		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>(); 
+		
+		if(txRespBodyEntity.getENQR_RST_GRP() == null || txRespBodyEntity.getENQR_RST_GRP().size() == 0) {
+			return list;
+		}
+		
+		// 结果集 字段
+		String[] mapKeys = txRespBodyEntity.getRet_Col_Set_Inf().split(",");
+		//List<String> mapEntryKeys = new ArrayList<String>();
+		//Collections.addAll(mapEntryKeys, mapEntryKeysArray);
+		
+		for(TxEnqrRstVO txEnqrRst : txRespBodyEntity.getENQR_RST_GRP()) {
+			// txEnqrRsts mapKeys 两者的元素数量应该一致
+			String[] txEnqrRsts = txEnqrRst.getEnqr_RstInf().split("|@|");
+			
+			Map<String, Object> map = new HashMap<String, Object>(mapKeys.length);
+			for(int index = 0; index < mapKeys.length; index ++) {
+				map.put(mapKeys[index], txEnqrRsts[index]);
+			}
+			
+			list.add(map);
+		}
+		
+		return list;
 	}
 
 
