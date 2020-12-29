@@ -1,24 +1,24 @@
 package com.nantian.controller;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.io.InputStream;
 
+import javax.servlet.ServletInputStream;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.nantian.common.config.AppConfig;
-import com.nantian.common.config.P10SvcConfig;
+import com.nantian.common.servlet.RequestWrapper;
+import com.nantian.common.util.HttpHelper;
 import com.nantian.common.vo.ResultVO;
 import com.nantian.service.P10DataService;
 import com.nantian.vo.P10ReqVO;
@@ -50,7 +50,7 @@ public class P10DataController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/data",  method = RequestMethod.POST)
-	public ResultVO<P10ResultDataVO> getData(@Valid @RequestBody P10ReqVO req, BindingResult result) throws Exception {
+	public ResultVO<P10ResultDataVO> getData(@Valid @RequestBody P10ReqVO req, BindingResult result, HttpServletRequest request) throws Exception {
 		/*
 		if(result.hasErrors()) {
 			List<ObjectError> errorList = result.getAllErrors();
@@ -64,7 +64,12 @@ public class P10DataController {
 			throw new IllegalArgumentException();
 		}
 		*/
-		log.debug("收到请求");
+	    
+	    String body = IOUtils.toString(request.getInputStream());
+	    
+		log.info("收到请求：" + body);
+		log.info("收到请求：" + req.getAppid());
+		
 		return p10DataService.getData(req);
 	}
 
