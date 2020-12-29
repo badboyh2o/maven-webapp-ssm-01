@@ -12,7 +12,7 @@
        <param-value>classpath:spring-context.xml</param-value>
    </context-param>
    
-   <!-- 编码过滤器 -->
+   <!-- 编码过滤器，指定按什么编码方式解释 HttpServletRequest -->
    <filter>
        <filter-name>encodingFilter</filter-name>
        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

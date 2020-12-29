@@ -7,6 +7,9 @@ package com.nantian.common.config;
  *
  */
 public class AppConfig {
+    // 本系统的http服务的编码格式
+    public static String SERVER_HTTP_ENCODING = Global.getConfig("server.http.encoding");
+    
 	// A0831D023 服务码对应的url
 	public static String A0831D023_URL = Global.getConfig("A0831D023.url");
 	// A0831D023 服务通信 encoding
