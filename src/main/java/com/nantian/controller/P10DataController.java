@@ -41,6 +41,7 @@ public class P10DataController {
 	/**
 	 * 返回P10接口数据
 	 * 	@Valid 这里使用了jsr 303 bean valid, 留意 VO 中的 valid 注解
+	 *  @Valid , BindingResult result  必须在参数列表中紧挨着 ？
 	 * 
 	 * @param req
 	 * @param request
