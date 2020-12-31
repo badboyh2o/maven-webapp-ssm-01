@@ -66,11 +66,9 @@ public class P10DataController {
 		}
 		*/
 	    
-	    String body = IOUtils.toString(request.getInputStream());
+	    // 使用处理器拦截器记录请求
+	    // String body = IOUtils.toString(request.getInputStream());
 	    
-		log.info("收到请求：" + body);
-		log.info("收到请求：" + req.getAppid());
-		
 		return p10DataService.getData(req);
 	}
 

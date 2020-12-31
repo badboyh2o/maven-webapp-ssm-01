@@ -47,4 +47,16 @@
         <property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
     </bean>
     
+    
+    <mvc:interceptors> 
+	    <mvc:interceptor>
+	        <mvc:mapping path="/**" /> 
+	        <!-- 需排除拦截的地址 -->
+	         <mvc:exclude-mapping path="/static/**"/> 
+	        <bean id="logRequestInterceptor" class="com.nantian.common.interceptor.LogRequestInterceptor"></bean> 
+	    </mvc:interceptor> 
+    </mvc:interceptors>
+    
+    
+    
 </beans>
