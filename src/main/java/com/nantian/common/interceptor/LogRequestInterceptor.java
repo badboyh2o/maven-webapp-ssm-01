@@ -10,10 +10,13 @@ import org.springframework.http.HttpMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.nantian.common.config.AppConfig;
+
 /**
  *日志记录 每一个请求的请求体内容
  *      如果是POST请求，则记录请求体内容
- *      TODO 如果是文件上传请求，则不记录？？
+ *   TODO 如果是文件上传请求，则不记录？？
+ *   TODO 统一的通信编码格式
  *
  * @author badboyh20
  *
@@ -30,7 +33,7 @@ public class LogRequestInterceptor implements HandlerInterceptor {
         
         // 如果是post请求
         if(HttpMethod.POST.toString().equals(request.getMethod())) {
-            reqBuf.append(request.getServletPath()).append(" - ") .append(IOUtils.toString(request.getInputStream()));
+            reqBuf.append(request.getServletPath()).append(" - ") .append(IOUtils.toString(request.getInputStream(), AppConfig.SERVER_HTTP_ENCODING));
         } else {
             reqBuf.append(request.getServletPath());
         }
