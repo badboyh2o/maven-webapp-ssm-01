@@ -53,7 +53,7 @@
 	        <mvc:mapping path="/**" /> 
 	        <!-- 需排除拦截的地址 -->
 	         <mvc:exclude-mapping path="/static/**"/> 
-	        <bean id="logRequestInterceptor" class="com.nantian.common.interceptor.LogRequestInterceptor"></bean> 
+	        <bean id="logRequestInterceptor" class="com.nantian.common.servlet.interceptor.LogRequestInterceptor"></bean> 
 	    </mvc:interceptor> 
     </mvc:interceptors>
     

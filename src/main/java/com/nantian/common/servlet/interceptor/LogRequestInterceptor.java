@@ -1,4 +1,4 @@
-package com.nantian.common.interceptor;
+package com.nantian.common.servlet.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

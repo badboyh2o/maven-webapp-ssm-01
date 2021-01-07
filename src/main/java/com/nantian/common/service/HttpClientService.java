@@ -28,8 +28,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.nantian.controller.P10DataController;
-
 @Service
 public class HttpClientService {
 	private static Logger log = LoggerFactory.getLogger(HttpClientService.class);

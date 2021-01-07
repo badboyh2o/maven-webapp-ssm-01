@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequestWrapper;
 import com.nantian.common.util.HttpHelper;
 
 /**
- * 自定义的 http请求包装类
+ * 自定义的 http请求包装类，解决 @RequestBdody request.getInputStream() stream close
  * 
  *      实例化时将请求体写入到 body
  *   getInputStream()则从 body 读取 

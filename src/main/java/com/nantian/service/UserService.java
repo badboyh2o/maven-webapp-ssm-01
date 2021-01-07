@@ -1,6 +1,6 @@
 package com.nantian.service;
 
-import com.nantian.entity.Demo;
+import com.nantian.po.Demo;
 
 public interface UserService {
     
