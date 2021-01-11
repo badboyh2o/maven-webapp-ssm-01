@@ -33,7 +33,7 @@
 	<slf4j.version>1.7.21</slf4j.version>
 	
 	<!-- tools version -->
-    <validator.version>5.2.4.Final</validator.version>
+    <validator.version>5.2.5.Final</validator.version>
     <jackson.version>2.2.3</jackson.version>
     <xstream.version>1.4.9</xstream.version>
     <fastjson.version>1.2.73</fastjson.version>
