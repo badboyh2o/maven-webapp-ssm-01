@@ -17,7 +17,7 @@
 	<mybatis.version>3.3.0</mybatis.version>
 	<mybatis-spring.version>1.2.3</mybatis-spring.version>
 	<aspectj.version>1.8.0</aspectj.version>
-	<junit.version>4.13</junit.version>
+	<junit.version>4.13.1</junit.version>
 	
 	<!-- servlet -->
 	<jsp-api.version>2.2.1-b03</jsp-api.version>
