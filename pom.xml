@@ -34,7 +34,7 @@
 	
 	<!-- tools version -->
     <validator.version>5.2.4.Final</validator.version>
-    <jackson.version>2.2.3</jackson.version>
+    <jackson.version>2.12.1</jackson.version>
     <xstream.version>1.4.9</xstream.version>
     <fastjson.version>1.2.73</fastjson.version>
     <commons-lang3.version>3.3.2</commons-lang3.version>
