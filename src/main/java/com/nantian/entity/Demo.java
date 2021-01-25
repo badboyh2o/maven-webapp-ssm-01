@@ -1,4 +1,4 @@
-package com.nantian.po;
+package com.nantian.entity;
 
 public class Demo {
     /**

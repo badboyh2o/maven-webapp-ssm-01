@@ -21,7 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.nantian.common.service.HttpClientService;
 import com.nantian.common.vo.ResultVO;
-import com.nantian.po.Demo;
+import com.nantian.entity.Demo;
 
 
 /**

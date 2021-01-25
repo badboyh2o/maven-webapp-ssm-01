@@ -1,6 +1,6 @@
 package com.nantian.dto;
 
-import com.nantian.po.Demo;
+import com.nantian.entity.Demo;
 
 public class DemoDTO extends Demo {
 

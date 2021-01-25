@@ -1,6 +1,6 @@
 package com.nantian.dao;
 
-import com.nantian.po.Demo;
+import com.nantian.entity.Demo;
 
 /**
  * 要使用持久层，需要取消 spring-context.xml 中的注释 
