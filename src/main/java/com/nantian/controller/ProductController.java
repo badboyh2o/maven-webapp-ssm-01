@@ -1,6 +1,7 @@
 package com.nantian.controller;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,7 +32,7 @@ import com.nantian.vo.ProductVO;
  * 用户控制器
  */
 @Controller
-@RequestMapping(value = "/prod")
+@RequestMapping(value = "prod")
 public class ProductController {
 	
 	private static Logger log = LoggerFactory.getLogger(ProductController.class);
@@ -42,14 +43,50 @@ public class ProductController {
 	@Autowired
 	private HttpClientService httpClientService;
 	
-    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
+	/**
+	 * 绑定json
+	 * @param id
+	 * @param productVO
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+    @RequestMapping(value = "edit/{id}", method = RequestMethod.POST)
     public ModelAndView update(@PathVariable("id") String id, @RequestBody ProductVO productVO, HttpServletRequest request, HttpServletResponse response) {
-    	ModelAndView mav = new ModelAndView();
+    	// ProductVO.price
+        
+        System.out.println(productVO.getPrice().divide(new BigDecimal("2")));
+        
+        ModelAndView mav = new ModelAndView();
     	Product p = productService.find(id);
     	mav.setViewName("index");
     	mav.getModel().put("prod", p);
     	return mav;
     }
+    
+    /**
+     * 绑定表单
+     * @param id
+     * @param productVO
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "insert", method = RequestMethod.POST)
+    public ModelAndView insert(ProductVO productVO, HttpServletRequest request, HttpServletResponse response) {
+        // TODO productVO null ???
+        // springmvc 参数绑定表单失败
+        
+        System.out.println(request.getParameter("price"));
+        
+        System.out.println("price: " + productVO.getPrice().divide(new BigDecimal("2")));
+        
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("index");
+        mav.getModel().put("prod", productVO);
+        return mav;
+    }
+    
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ModelAndView get(@PathVariable("id") String id, HttpServletRequest request, HttpServletResponse response) {
@@ -59,6 +96,10 @@ public class ProductController {
         mav.getModel().put("prod", p);
         return mav;
     }
+    
+    
+
+    
     
     
     

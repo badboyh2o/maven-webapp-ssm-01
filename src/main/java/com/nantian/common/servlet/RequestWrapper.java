@@ -17,6 +17,10 @@ import com.nantian.common.util.HttpHelper;
  * 
  *      实例化时将请求体写入到 body
  *   getInputStream()则从 body 读取 
+ *   
+ *   
+ *   ？ request.getParameter("xx") 为 null ?
+ *   
  *
  */
 public class RequestWrapper extends HttpServletRequestWrapper {

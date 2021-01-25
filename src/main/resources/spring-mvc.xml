@@ -33,6 +33,15 @@
     <!-- 将静态资源的请求转由Web应用服务器 默认的Servlet处理， default-servlet-name 指定web服务器的默认servlet（默认是default）, tomcat默认servlet时default  -->
     <mvc:default-servlet-handler default-servlet-name="default"/>
 
+    <!-- servlet 拦截器 -->
+    <mvc:interceptors> 
+        <mvc:interceptor>
+            <mvc:mapping path="/**" /> 
+            <!-- 需排除拦截的地址 -->
+             <mvc:exclude-mapping path="/static/**"/> 
+            <bean id="logRequestInterceptor" class="com.nantian.common.servlet.interceptor.LogRequestInterceptor"></bean> 
+        </mvc:interceptor> 
+    </mvc:interceptors>
 
     <!-- 配置视图解析器，可以显式设置，也可以不设置，不设置会依据SpringMVC的默认设置 -->
     <bean id="viewResolver"
@@ -46,17 +55,6 @@
         <!-- hibernate校验器-->
         <property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
     </bean>
-    
-    
-    <mvc:interceptors> 
-	    <mvc:interceptor>
-	        <mvc:mapping path="/**" /> 
-	        <!-- 需排除拦截的地址 -->
-	         <mvc:exclude-mapping path="/static/**"/> 
-	        <bean id="logRequestInterceptor" class="com.nantian.common.servlet.interceptor.LogRequestInterceptor"></bean> 
-	    </mvc:interceptor> 
-    </mvc:interceptors>
-    
     
     
 </beans>

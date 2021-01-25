@@ -65,8 +65,8 @@
    </servlet-mapping>
   
     <!-- 不存在，跳转至 -->  
-    <error-page>
+<!--     <error-page>
         <error-code>404</error-code>
         <location>/static/index.html</location>
-    </error-page>
+    </error-page> -->
 </web-app>
